@@ -1,0 +1,5 @@
+name: Economy
+version: '1.0-SNAPSHOT'
+main: me.iggy.economy.Economy
+api-version: '1.21'
+authors: [ Iggy ]

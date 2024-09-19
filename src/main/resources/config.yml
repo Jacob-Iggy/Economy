@@ -1,0 +1,14 @@
+database:
+  mongo:
+    uri: ""
+    db: "economy"
+
+starting-balance: 100.0
+
+moneynote:
+  item:
+    material: PAPER
+    name: '&a$%amount% Money Note'
+    lore:
+      - '&fRight click this note'
+      - '&fto redeem the money.'
