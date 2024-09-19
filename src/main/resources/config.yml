@@ -12,3 +12,10 @@ moneynote:
     lore:
       - '&fRight click this note'
       - '&fto redeem the money.'
+  redeem-message: '&aYou have successfully redeemed a $%amount% Money Note!'
+
+balance-message: '&aBalance: %amount%'
+insufficient-funds-message: '&cInsufficient funds.'
+pay-messages:
+  sender: '&aSuccessfully paid %target% $%amount%!'
+  target: '&a%sender% paid you $%amount%!'

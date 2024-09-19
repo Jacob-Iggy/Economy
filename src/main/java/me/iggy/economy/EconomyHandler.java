@@ -101,4 +101,9 @@ public class EconomyHandler {
         return (double) itemStack.getItemMeta().getPersistentDataContainer().get(new NamespacedKey(Economy.getInstance(), "money-amount"), PersistentDataType.DOUBLE);
     }
 
+    public double getBalance(Player player) {
+        Profile profile = Profile.getProfile(player.getUniqueId()).get();
+        return profile.getBalance();
+    }
+
 }
