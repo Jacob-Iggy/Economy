@@ -4,6 +4,11 @@ import com.jonahseguin.drink.CommandService;
 import com.jonahseguin.drink.Drink;
 import lombok.Getter;
 import me.iggy.economy.commands.BalanceCommand;
+import me.iggy.economy.commands.PayCommand;
+import me.iggy.economy.commands.WithdrawCommand;
+import me.iggy.economy.commands.bank.BankCommand;
+import me.iggy.economy.commands.bank.sub.BankDepositCommand;
+import me.iggy.economy.commands.bank.sub.BankWithdrawCommand;
 import me.iggy.economy.database.DatabaseHandler;
 import me.iggy.economy.profile.ProfileHandler;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -46,6 +51,11 @@ public final class Economy extends JavaPlugin {
     private void registerCommands() {
         drink = Drink.get(this);
         drink.register(new BalanceCommand(), "balance", "bal");
+        drink.register(new PayCommand(), "pay");
+        drink.register(new WithdrawCommand(), "withdraw");
+        drink.register(new BankCommand(), "bank")
+                        .registerSub(new BankDepositCommand())
+                        .registerSub(new BankWithdrawCommand());
         drink.registerCommands();
     }
 

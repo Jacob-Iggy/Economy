@@ -14,8 +14,17 @@ moneynote:
       - '&fto redeem the money.'
   redeem-message: '&aYou have successfully redeemed a $%amount% Money Note!'
 
-balance-message: '&aBalance: %amount%'
+balance-message:
+  - '&aWallet Balance: %bal%'
+  - '&aBank Balance: %bank_bal%'
 insufficient-funds-message: '&cInsufficient funds.'
 pay-messages:
   sender: '&aSuccessfully paid %target% $%amount%!'
   target: '&a%sender% paid you $%amount%!'
+
+bank-help-messsage:
+  - '&a/bank - View Bank Help Message.'
+  - '&a/bank withdraw <amount> - Withdraw Bank Balance to Wallet.'
+  - '&a/bank deposit <amount> - Deposit Wallet Balance to Bank.'
+bank-deposit-message: '&aSuccessfully deposited $%amount% to Bank.'
+bank-withdraw-message: '&aSuccessfully withdrew $%amount% from Bank.'

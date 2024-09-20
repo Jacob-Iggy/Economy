@@ -10,7 +10,11 @@ public class BalanceCommand {
 
     @Command(name = "", desc = "Balance Command", async = false)
     public static void onCommand(@Sender Player sender) {
-        sender.sendMessage(CC.translate(Economy.getInstance().getConfig().getString("balance-message").replaceAll("%amount%", String.valueOf(Economy.getInstance().getEconomyHandler().getBalance(sender)))));
+        Economy.getInstance().getConfig().getStringList("balance-message").forEach(msg -> {
+            sender.sendMessage(CC.translate(msg
+                    .replaceAll("%bal%", String.valueOf(Economy.getInstance().getEconomyHandler().getBalance(sender)))
+                    .replaceAll("%bank_bal%", String.valueOf(Economy.getInstance().getEconomyHandler().getBankBalance(sender)))));
+        });
     }
 
 }

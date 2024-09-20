@@ -106,4 +106,9 @@ public class EconomyHandler {
         return profile.getBalance();
     }
 
+    public double getBankBalance(Player player) {
+        Profile profile = Profile.getProfile(player.getUniqueId()).get();
+        return profile.getBankBalance();
+    }
+
 }
