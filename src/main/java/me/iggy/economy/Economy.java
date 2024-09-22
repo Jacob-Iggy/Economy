@@ -6,6 +6,10 @@ import lombok.Getter;
 import me.iggy.economy.commands.BalanceCommand;
 import me.iggy.economy.commands.PayCommand;
 import me.iggy.economy.commands.WithdrawCommand;
+import me.iggy.economy.commands.admin.EcoCommand;
+import me.iggy.economy.commands.admin.sub.EcoAddCommand;
+import me.iggy.economy.commands.admin.sub.EcoRemoveCommand;
+import me.iggy.economy.commands.admin.sub.EcoSetCommand;
 import me.iggy.economy.commands.bank.BankCommand;
 import me.iggy.economy.commands.bank.sub.BankDepositCommand;
 import me.iggy.economy.commands.bank.sub.BankWithdrawCommand;
@@ -54,8 +58,12 @@ public final class Economy extends JavaPlugin {
         drink.register(new PayCommand(), "pay");
         drink.register(new WithdrawCommand(), "withdraw");
         drink.register(new BankCommand(), "bank")
-                        .registerSub(new BankDepositCommand())
-                        .registerSub(new BankWithdrawCommand());
+                .registerSub(new BankDepositCommand())
+                .registerSub(new BankWithdrawCommand());
+        drink.register(new EcoCommand(), "eco")
+                .registerSub(new EcoAddCommand())
+                .registerSub(new EcoRemoveCommand())
+                .registerSub(new EcoSetCommand());
         drink.registerCommands();
     }
 

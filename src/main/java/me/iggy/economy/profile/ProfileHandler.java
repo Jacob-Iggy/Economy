@@ -12,6 +12,7 @@ public class ProfileHandler {
     public ProfileHandler() {
         instance.getServer().getPluginManager().registerEvents(new JoinListener(), instance);
         instance.getServer().getPluginManager().registerEvents(new MoneyNoteListener(), instance);
+        instance.getServer().getPluginManager().registerEvents(new TransactionMenu(), instance);
     }
 
     public WrappedCollection<Profile> getProfiles() {

@@ -18,7 +18,7 @@ public class EconomyHandler {
     public void addMoney(Player player, double amount, String reason) {
         Profile profile = Profile.getProfile(player.getUniqueId()).get();
         profile.setBalance(profile.getBalance() + amount);
-        Transaction transaction = new Transaction(amount, "Received", reason);
+        Transaction transaction = new Transaction(amount, "+", reason);
         profile.getTransactionHistory().add(transaction);
         profile.save();
     }
@@ -26,7 +26,15 @@ public class EconomyHandler {
     public void removeMoney(Player player, double amount, String reason) {
         Profile profile = Profile.getProfile(player.getUniqueId()).get();
         profile.setBalance(profile.getBalance() - amount);
-        Transaction transaction = new Transaction(amount, "Lost", reason);
+        Transaction transaction = new Transaction(amount, "-", reason);
+        profile.getTransactionHistory().add(transaction);
+        profile.save();
+    }
+
+    public void setMoney(Player player, double amount, String reason) {
+        Profile profile = Profile.getProfile(player.getUniqueId()).get();
+        profile.setBalance(amount);
+        Transaction transaction = new Transaction(amount, "+", reason);
         profile.getTransactionHistory().add(transaction);
         profile.save();
     }
@@ -38,8 +46,8 @@ public class EconomyHandler {
         sProfile.setBalance(sProfile.getBalance() - amount);
         rProfile.setBalance(rProfile.getBalance() + amount);
 
-        Transaction sTransaction = new Transaction(amount, "Lost", "Paid " + receiver.getDisplayName());
-        Transaction rTransaction = new Transaction(amount, "Received", "Sent From " + sender.getDisplayName());
+        Transaction sTransaction = new Transaction(amount, "-", "Paid " + receiver.getDisplayName());
+        Transaction rTransaction = new Transaction(amount, "+", "Sent From " + sender.getDisplayName());
 
         sProfile.getTransactionHistory().add(sTransaction);
         rProfile.getTransactionHistory().add(rTransaction);
@@ -51,7 +59,7 @@ public class EconomyHandler {
     public void addBankMoney(Player player, double amount, String reason) {
         Profile profile = Profile.getProfile(player.getUniqueId()).get();
         profile.setBankBalance(profile.getBankBalance() + amount);
-        Transaction transaction = new Transaction(amount, "Received", reason);
+        Transaction transaction = new Transaction(amount, "+", reason);
         profile.getTransactionHistory().add(transaction);
         profile.save();
     }
@@ -59,7 +67,7 @@ public class EconomyHandler {
     public void removeBankMoney(Player player, double amount, String reason) {
         Profile profile = Profile.getProfile(player.getUniqueId()).get();
         profile.setBankBalance(profile.getBankBalance() - amount);
-        Transaction transaction = new Transaction(amount, "Lost", reason);
+        Transaction transaction = new Transaction(amount, "-", reason);
         profile.getTransactionHistory().add(transaction);
         profile.save();
     }
@@ -68,7 +76,7 @@ public class EconomyHandler {
         Profile profile = Profile.getProfile(player.getUniqueId()).get();
         profile.setBalance(profile.getBalance() - amount);
         profile.setBankBalance(profile.getBankBalance() + amount);
-        Transaction transaction = new Transaction(amount, "Deposit", "Deposit to Bank");
+        Transaction transaction = new Transaction(amount, "+", "Deposit to Bank");
         profile.getTransactionHistory().add(transaction);
         profile.save();
     }
@@ -77,7 +85,7 @@ public class EconomyHandler {
         Profile profile = Profile.getProfile(player.getUniqueId()).get();
         profile.setBankBalance(profile.getBankBalance() - amount);
         profile.setBalance(profile.getBalance() + amount);
-        Transaction transaction = new Transaction(amount, "Withdraw", "Withdraw from Bank");
+        Transaction transaction = new Transaction(amount, "-", "Withdraw from Bank");
         profile.getTransactionHistory().add(transaction);
         profile.save();
     }

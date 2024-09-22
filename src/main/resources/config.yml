@@ -28,3 +28,9 @@ bank-help-messsage:
   - '&a/bank deposit <amount> - Deposit Wallet Balance to Bank.'
 bank-deposit-message: '&aSuccessfully deposited $%amount% to Bank.'
 bank-withdraw-message: '&aSuccessfully withdrew $%amount% from Bank.'
+
+eco-help-message:
+  - '&a/eco - View Economy Admin Help Message.'
+  - '&a/eco set <player> <amount> - Set Player Balance.'
+  - '&a/eco add <player> <amount> - Add to Player Balance.'
+  - '&a/eco remove <player> <amount> - Remove from Player Balance.'
