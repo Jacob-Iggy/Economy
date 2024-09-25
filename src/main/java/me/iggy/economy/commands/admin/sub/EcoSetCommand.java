@@ -17,7 +17,7 @@ public class EcoSetCommand {
             sender.sendMessage(CC.translate("&cInvalid type!"));
             return;
         }
-        
+
         if (type.equalsIgnoreCase("wallet")) {
             Economy.getInstance().getEconomyHandler().setMoney(target, amount, "Admin");
             sender.sendMessage(CC.translate("&aSuccessfully set balance of " + target.getName() + "'s wallet!"));

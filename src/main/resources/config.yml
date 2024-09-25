@@ -34,3 +34,5 @@ eco-help-message:
   - '&a/eco set <player> <amount> - Set Player Balance.'
   - '&a/eco add <player> <amount> - Add to Player Balance.'
   - '&a/eco remove <player> <amount> - Remove from Player Balance.'
+
+drop-money-on-death: true

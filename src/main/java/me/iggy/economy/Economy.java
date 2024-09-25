@@ -5,6 +5,7 @@ import com.jonahseguin.drink.Drink;
 import lombok.Getter;
 import me.iggy.economy.commands.BalanceCommand;
 import me.iggy.economy.commands.PayCommand;
+import me.iggy.economy.commands.ReloadCommand;
 import me.iggy.economy.commands.WithdrawCommand;
 import me.iggy.economy.commands.admin.EcoCommand;
 import me.iggy.economy.commands.admin.sub.EcoAddCommand;
@@ -65,6 +66,7 @@ public final class Economy extends JavaPlugin {
                 .registerSub(new EcoAddCommand())
                 .registerSub(new EcoRemoveCommand())
                 .registerSub(new EcoSetCommand());
+        drink.register(new ReloadCommand(), "economy reload");
         drink.registerCommands();
     }
 
