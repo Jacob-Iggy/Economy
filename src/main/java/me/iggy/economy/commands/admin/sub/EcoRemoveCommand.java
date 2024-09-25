@@ -11,10 +11,22 @@ public class EcoRemoveCommand {
 
     @Command(name = "remove", desc = "Eco Remove Command", async = false)
     @Require("economy.admin")
-    public static void onCommand(@Sender Player sender, Player target, double amount) {
+    public static void onCommand(@Sender Player sender, Player target, String type, double amount) {
 
-        Economy.getInstance().getEconomyHandler().removeMoney(target, amount, "Admin");
-        sender.sendMessage(CC.translate("&aSuccessfully removed money from " + target.getName() + "'s account!"));
+        if (!type.equalsIgnoreCase("wallet") && !type.equalsIgnoreCase("bank")) {
+            sender.sendMessage(CC.translate("&cInvalid type!"));
+            return;
+        }
+
+        if (type.equalsIgnoreCase("wallet")) {
+            Economy.getInstance().getEconomyHandler().removeMoney(target, amount, "Admin");
+            sender.sendMessage(CC.translate("&aSuccessfully removed money from " + target.getName() + "'s wallet!"));
+            return;
+        }
+
+        Economy.getInstance().getEconomyHandler().removeBankMoney(target, amount, "Admin");
+        sender.sendMessage(CC.translate("&aSuccessfully removed money from " + target.getName() + "'s bank account!"));
+
 
     }
 

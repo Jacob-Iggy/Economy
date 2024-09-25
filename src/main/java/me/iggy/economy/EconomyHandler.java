@@ -72,6 +72,14 @@ public class EconomyHandler {
         profile.save();
     }
 
+    public void setBankMoney(Player player, double amount, String reason) {
+        Profile profile = Profile.getProfile(player.getUniqueId()).get();
+        profile.setBankBalance(amount);
+        Transaction transaction = new Transaction(amount, "+", reason);
+        profile.getTransactionHistory().add(transaction);
+        profile.save();
+    }
+
     public void transferToBank(Player player, double amount) {
         Profile profile = Profile.getProfile(player.getUniqueId()).get();
         profile.setBalance(profile.getBalance() - amount);
